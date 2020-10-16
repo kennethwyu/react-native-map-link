@@ -96,7 +96,7 @@ export async function showLocation(options) {
       if (useSourceDestiny) {
         url += `?saddr=${sourceLatLng}&daddr=${latlng}`;
       } else {
-        prefix = !(isIOS && !alwaysIncludeGoogle) ? '?api=1&query=' : '?q=';
+        prefix = !(isIOS && !options.alwaysIncludeGoogle) ? '?api=1&query=' : '?q=';
         if (options.googleForceLatLon && title) {
           url += `${prefix}loc:${lat},+${lng}+(${encodedTitle})`;
         } else if (title) {
