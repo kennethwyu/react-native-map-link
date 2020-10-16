@@ -79,6 +79,7 @@ export async function showLocation(options) {
   }
 
   let url = null;
+  let prefix = null;
 
   switch (app) {
     case 'apple-maps':
