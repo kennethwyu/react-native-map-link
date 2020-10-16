@@ -95,12 +95,13 @@ export async function showLocation(options) {
       if (useSourceDestiny) {
         url += `?saddr=${sourceLatLng}&daddr=${latlng}`;
       } else {
+        prefix = !(isIOS && !alwaysIncludeGoogle) ? '?api=1&query=' : '?q=';
         if (options.googleForceLatLon && title) {
-          url += `?q=loc:${lat},+${lng}+(${encodedTitle})`;
+          url += `${prefix}loc:${lat},+${lng}+(${encodedTitle})`;
         } else if (title) {
-          url += `?q=${encodedTitle}`;
+          url += `${prefix}${encodedTitle}`;
         } else {
-          url += `?q=${latlng}`;
+          url += `${prefix}${latlng}`;
         }
       }
 
